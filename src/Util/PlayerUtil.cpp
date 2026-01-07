@@ -1,8 +1,13 @@
 #include "Util/PlayerUtil.h"
 
 #include "Library/LiveActor/ActorPoseUtil.h"
-#include "Library/Math/MathUtil.h"
 #include "Library/Player/PlayerUtil.h"
+#include "Library/Math/MathUtil.h"
+
+void rs::calcPlayerSideDir(sead::Vector3f* dir, const al::LiveActor* actor) {
+    const al::LiveActor* player = al::getPlayerActor(actor, 0);
+    al::calcSideDir(dir, player);
+}
 
 bool rs::isNearPlayerH(const al::LiveActor* actor, f32 threshold) {
     const al::LiveActor* player = al::getPlayerActor(actor, 0);
